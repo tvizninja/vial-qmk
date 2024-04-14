@@ -17,4 +17,6 @@ BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
 
+DYNAMIC_MACRO_ENABLE = yes
+
 LAYOUTS = ortho_4x12
