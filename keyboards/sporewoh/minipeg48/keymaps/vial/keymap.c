@@ -118,3 +118,71 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return state;
 //  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
+/*
+static bool first_lower_pressed = false;
+static uint16_t first_lower_pressed_time = 0;
+static bool first_raise_pressed = false;
+static uint16_t first_raise_pressed_time = 0;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case LOWER:
+      if (record->event.pressed) {
+        if (!first_lower_pressed) {
+          first_lower_pressed_time = record->event.time;
+        // 一回目のタップのフラグがオン & 最初のキー押下から2回目のキー押下までの時間が TAPPING_TERM の2倍超なら
+        // 間隔を空けた2回目のタップと判断する
+        } else if (first_lower_pressed && (TIMER_DIFF_16(record->event.time, first_lower_pressed_time) > TAPPING_TERM * 2)) {
+          first_lower_pressed_time = record->event.time;
+          first_lower_pressed = false;
+        }
+        layer_on(_LOWER);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      } else {
+        layer_off(_LOWER);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+        // タップのフラグがオフ & 最初のキー押下からキーを離した時までの時間が TAPPING_TERM 未満なら
+        // タップと判断する
+        if (!first_lower_pressed && (TIMER_DIFF_16(record->event.time, first_lower_pressed_time) < TAPPING_TERM)) {
+          first_lower_pressed = true;
+        // タップのフラグがオン & 最初のキー押下から2回目のタイプでキーを離した時までの時間が TAPPING_TERM の2倍以下なら
+        // ダブルタップと判断する
+        } else if (first_lower_pressed && (TIMER_DIFF_16(record->event.time, first_lower_pressed_time) <= TAPPING_TERM * 2)) {
+          tap_code(KC_LNG1);
+          first_lower_pressed = false;
+        } else {
+          first_lower_pressed = false;
+        }
+      }
+      return false;
+      break;
+    case RAISE:
+      if (record->event.pressed) {
+        if (!first_raise_pressed) {
+          first_raise_pressed_time = record->event.time;
+        } else if (first_raise_pressed && (TIMER_DIFF_16(record->event.time, first_raise_pressed_time) > TAPPING_TERM * 2)) {
+          first_raise_pressed_time = record->event.time;
+          first_raise_pressed = false;
+        }
+        layer_on(_RAISE);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      } else {
+        layer_off(_RAISE);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+        if (!first_raise_pressed && (TIMER_DIFF_16(record->event.time, first_raise_pressed_time) < TAPPING_TERM)) {
+          first_raise_pressed = true;
+        } else if (first_raise_pressed && (TIMER_DIFF_16(record->event.time, first_raise_pressed_time) <= TAPPING_TERM * 2)) {
+          tap_code(KC_LNG2);
+          first_raise_pressed = false;
+        } else {
+          first_raise_pressed = false;
+        }
+      }
+      return false;
+      break;
+  }
+  first_lower_pressed = false;
+  first_raise_pressed = false;
+  return true;
+}
+*/
