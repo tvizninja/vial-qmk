@@ -20,9 +20,7 @@ enum planck_layers {
   _QWERTY,
   _LOWER,
   _RAISE,
-  _ADJUST,
-  _LOWEN,
-  _RAIEN
+  _ADJUST
 };
 
 enum planck_keycodes {
@@ -31,8 +29,6 @@ enum planck_keycodes {
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define LOWEN MO(_LOWEN)
-#define RAIEN MO(_RAIEN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 

@@ -29,8 +29,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
-#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+#define DYNAMIC_KEYMAP_LAYER_COUNT 4
 
-#define DYNAMIC_MACRO_NO_NESTING
-#define DYNAMIC_MACRO_DELAY 8
- 
+//#define DYNAMIC_MACRO_NO_NESTING
+//#define DYNAMIC_MACRO_DELAY 8
+
+#define VIAL_TAP_DANCE_ENTRIES 16
+#define VIAL_COMBO_ENTRIES 12
+#define VIAL_KEY_OVERRIDE_ENTRIES 20
