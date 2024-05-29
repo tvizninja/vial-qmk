@@ -4,18 +4,6 @@
   "productId": "0xE610",
   "lighting": "none",
   "matrix": { "rows": 4, "cols": 12 },
-  "customKeycodes": [
-    {
-      "name": "DISABLE_KEY_OS_OVERRIDE",
-      "title": "Disable key overrides for JP/US OS",
-      "shortName": "D\nOVR"
-    },
-    {
-      "name": "ENABLE_US_KEY_ON_JP_OS_OVERRIDE",
-      "title": "Enable US keyboard on JP OS override",
-      "shortName": "UJ\nOVR"
-    }
-  ],
   "layouts": {
       "keymap": [
         [{"c":"#777777"},"0,0",{"c":"#cccccc"},"0,1","0,2","0,3","0,4","0,5","0,6","0,7","0,8","0,9","0,10","0,11",{"c":"#aaaaaa"},"3,7"],
