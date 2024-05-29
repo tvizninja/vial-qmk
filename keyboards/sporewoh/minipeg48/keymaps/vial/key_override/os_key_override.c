@@ -5,7 +5,7 @@
 
 #include "vial.h"
 
-#define OS_KEY_OVERRIDE_ENTRIES 25
+#define OS_KEY_OVERRIDE_ENTRIES 22
 
 extern const key_override_t **key_overrides;
 static key_override_t         os_override[OS_KEY_OVERRIDE_ENTRIES]                                   = {0};

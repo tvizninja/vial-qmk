@@ -25,4 +25,4 @@ void remove_all_os_key_overrides(void);
 
 void os_key_override_init(void);
 void register_us_key_on_jp_os_overrides(void);
-void register_jp_key_on_us_os_overrides(void);
+//void register_jp_key_on_us_os_overrides(void);
