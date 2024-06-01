@@ -93,6 +93,16 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
 user_config_t user_config;
 
+int8_t virtser_send_wrap(uint8_t c) {
+    virtser_send(c);
+    return 0;
+}
+
+void keyboard_pre_init_user(void) {
+    print_set_sendchar(virtser_send_wrap);
+}
+
+
 void keyboard_post_init_user(void) {
     os_key_override_init();
 
@@ -105,6 +115,10 @@ void keyboard_post_init_user(void) {
             register_us_key_on_jp_os_overrides();
             break;
     }
+}
+
+bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    return true;
 }
 
 #define DEFFERED_KEY_RECORD_LEN 6
@@ -157,4 +171,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void post_process_record_user(uint16_t keycode, keyrecord_t* record) {
+}
+
+void housekeeping_task_user(void) {
+    for (int i = 0; i < DEFFERED_KEY_RECORD_LEN; i++) {
+        if (deferred_key_record[i].keycode != KC_NO) {
+            g_vial_magic_keycode_override = deferred_key_record[i].keycode;
+            action_exec(deferred_key_record[i].event);
+            deferred_key_record[i].keycode = KC_NO;
+        } else {
+            break;
+        }
+    }
 }

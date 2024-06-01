@@ -16,6 +16,7 @@
     "nkro": false,
     "oled": false,
     "rgb_matrix": true,
+    "virtser": true,
     "via": false,
     "wpm": false
   },
